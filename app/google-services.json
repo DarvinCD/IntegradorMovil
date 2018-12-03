@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "752031409795",
+    "firebase_url": "https://integradormovil-a149c.firebaseio.com",
+    "project_id": "integradormovil-a149c",
+    "storage_bucket": "integradormovil-a149c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:752031409795:android:3cfb03c3a21b8f2d",
+        "android_client_info": {
+          "package_name": "com.example.daniel.integradormovil"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "752031409795-n26edlppqtsd9m8u253bte59gjfrvama.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.daniel.integradormovil",
+            "certificate_hash": "2d2ec917ebfa26e8278536e25cc9eb947c670b67"
+          }
+        },
+        {
+          "client_id": "752031409795-o9vubv7evu46ik7qh21hrh3ink5paj8m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7aHNstnyACBurwCBhSgepic9kfcwqmvU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "752031409795-o9vubv7evu46ik7qh21hrh3ink5paj8m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

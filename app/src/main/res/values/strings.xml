@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">IntegradorMovil</string>
+    <string name="title_activity_navegation">NavegationActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="tasas">
+        <item>Seleccionar Plazo</item>
+        <item>1 Mes</item>
+        <item>3 Meses</item>
+        <item>6 Meses</item>
+        <item>1 Año</item>
+    </string-array>
+
+</resources>

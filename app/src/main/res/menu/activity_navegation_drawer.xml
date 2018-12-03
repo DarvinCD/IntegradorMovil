@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_camera"
+            android:checked="true"
+            android:icon="@drawable/ic_menu_perfil"
+            android:title="Perfil" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_menu_ahorro"
+            android:title="Ahorro" />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Metas" />
+        <item
+            android:id="@+id/nav_manage"
+            android:icon="@drawable/ic_menu_inversiones"
+            android:title="Inversiones" />
+    </group>
+
+    <item android:title="CETES">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_calculadora"
+                    android:icon="@drawable/ic_menu_calculadora"
+                    android:title="Calculadora"/>
+                <item
+                    android:id="@+id/nav_rendimiento"
+                    android:icon="@drawable/ic_menu_rendimiento"
+                    android:title="Tasas de Rendimiento"/>
+                <item
+                    android:id="@+id/nav_cetes"
+                    android:icon="@drawable/ic_menu_cetes"
+                    android:title="Comprar Cetes" />
+                <item
+                    android:id="@+id/nav_inversiones"
+                    android:icon="@drawable/ic_menu_inversiones"
+                    android:title="Inversiones" />
+                <item
+                    android:id="@+id/nav_retiros"
+                    android:icon="@drawable/ic_menu_retiros"
+                    android:title="Retiros"/>
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="Opciones">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Compartir" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_shopping_cart_black_24dp"
+                android:title="Comprar cetes" />
+        </menu>
+    </item>
+
+</menu>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.daniel.integradormovil">
+
+    <application
+    tools:replace="android:label"
+    android:allowBackup="true"
+        android:backupInForeground="false"
+        android:icon="@mipmap/ic_launcher_home"
+        android:label="Cochinito WIFI"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity android:name=".SplashActivity"
+            android:theme="@style/AppTheme">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".LoginActivity"></activity>
+        <activity
+            android:name=".NavegationActivity"
+            android:label=""
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="screenSize|orientation"/>
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".MetasActivity" />
+        <activity android:name=".WebConexionActivity" />
+
+
+        <service
+            android:name=".MiFirebaseInstanceldService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+
+        <service
+            android:name=".MiFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+
+
+    </application>
+
+</manifest>
