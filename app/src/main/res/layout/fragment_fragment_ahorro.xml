@@ -41,7 +41,7 @@
             android:background="@drawable/cwi"
             android:gravity="center"
             android:textAlignment="center"
-            android:textColor="#FFC107"
+            android:textColor="@color/editTextColorWhite"
             android:textSize="60sp"
             android:textStyle="bold" />
 

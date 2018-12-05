@@ -136,12 +136,12 @@
 
         <Button
             android:id="@+id/boton_cancelar"
-            style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="0dp"
-            android:textColor="@color/colorPrimaryDark"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="cancelar" />
+            android:backgroundTint="#00BCD4"
+            android:text="cancelar"
+            android:textColor="@android:color/white"/>
 
         <Button
             android:id="@+id/fab_registr"

@@ -91,18 +91,6 @@
                     android:layout_below="@+id/area_olvidar"
                     android:orientation="horizontal">
 
-                    <Button
-                        android:id="@+id/calcu"
-                        style="@style/Base.TextAppearance.AppCompat.Body1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="50dp"
-                        android:background="@color/colorPrimaryDark"
-                        android:padding="16dp"
-                        android:text="Calcular"
-                        android:textColor="#ffffff"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
                 </LinearLayout>
             </TableLayout>
 

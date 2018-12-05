@@ -102,7 +102,7 @@ public class CalculadoraFragment extends Fragment implements View.OnClickListene
 
         editText1=(EditText)view.findViewById(R.id.campo_monto) ;
         textView=(TextView)view.findViewById(R.id.valor);
-        cal=(Button)view.findViewById(R.id.calcu);
+       // cal=(Button)view.findViewById(R.id.calcu);
         inversion=(TextView)view.findViewById(R.id.inversion);
         totalinv=(TextView)view.findViewById(R.id.total);
         rema=(TextView)view.findViewById(R.id.remanente);
@@ -294,21 +294,6 @@ public class CalculadoraFragment extends Fragment implements View.OnClickListene
                             switch(position){
                                 case 1:
 
-                                    cal.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-                                            ti.setVisibility(View.VISIBLE);
-                                            ti.setText("CETES 28");
-                                            ta.setVisibility(View.VISIBLE);
-                                            ta.setText(interes + "%");
-                                            tasa1 = ((interesp / 360) * 28);
-                                            ISR = ((ISRanual / 365) * 28);
-                                            valor2 = preci;
-                                            interesRBonddia = ((interesBonddia / 360) * 28);
-                                            total = valor1 / valor2;
-                                        }
-                                    });
-
                                     ti.setVisibility(View.VISIBLE);
                                     ti.setText("CETES 28");
                                     ta.setVisibility(View.VISIBLE);
@@ -396,7 +381,7 @@ public class CalculadoraFragment extends Fragment implements View.OnClickListene
                             valorbon.setText(""+intRem);
                             bonti.setVisibility(View.VISIBLE);
                             bonti.setText(bonddia+"%");
-                            cardView.setVisibility(view.VISIBLE);
+                            cardView.setVisibility(View.VISIBLE);
                             // ticete.setVisibility(View.VISIBLE);
                             titasa.setVisibility(View.VISIBLE);
                             //MONTO INVERTIDO EJEMPLO:100
@@ -500,7 +485,7 @@ public class CalculadoraFragment extends Fragment implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
-        proceso();
+
     }
 
     public interface OnFragmentInteractionListener {

@@ -106,10 +106,10 @@ public class FragmentAhorro extends Fragment {
 
                 String texto = dataSnapshot.getValue().toString();
 
-              //  int texto2=Integer.parseInt(texto);
+              int texto2=Integer.parseInt(texto);
 
               //  mAhorroView.setText("$" +texto);
-                if ((texto.isEmpty())) {
+                if (texto2==0) {
                     //ejecuta este codigo si se cumple la condición
                     valor.setText("¡SIN AHORROS!");
                     mAhorroView.setText("$0");

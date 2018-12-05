@@ -174,6 +174,15 @@ FragmentAhorro.OnFragmentInteractionListener,FragmentPerfil.OnFragmentInteractio
 
         }
 
+         else if (id == R.id.nav_cetes) {
+
+             // txt= "Seleccionaste Meta";
+             //  duracion= Toast.LENGTH_SHORT;
+             fragment = new CompraFragment();
+             FragmentTransaction = true;
+
+         }
+
        // else if (id == R.id.nav_manage) {
 
           //  txt= "Seleccionaste Inversiones";

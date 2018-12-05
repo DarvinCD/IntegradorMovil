@@ -52,7 +52,7 @@
                     android:textStyle="bold"
                     android:textColor="#ffffff"
                     android:text="PLAZO"
-                    android:background="#0B6138"/>
+                    android:background="@color/colorPrimaryDark"/>
                 <TextView
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
@@ -62,7 +62,7 @@
                     android:textColor="#ffffff"
                     android:text="PRECIO"
                     android:textStyle="bold"
-                    android:background="#0B6138"/>
+                    android:background="@color/colorPrimaryDark"/>
                 <TextView
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
@@ -72,7 +72,7 @@
                     android:textColor="#ffffff"
                     android:textStyle="bold"
                     android:text="TASA"
-                    android:background="#0B6138" />
+                    android:background="@color/colorPrimaryDark" />
             </TableRow>
 
 
@@ -98,7 +98,7 @@
                     android:gravity="center"
                     android:padding="10dp"
                     android:textSize="15dp"
-                    android:textColor="#298A08"
+                    android:textColor="#0097A7"
                     android:textStyle="bold"
                     android:background="#FFF8EA"/>
                 <TextView
@@ -132,13 +132,13 @@
                 <TextView
                     android:id="@+id/precio2"
                     android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
+                    android:layout_height="match_parent"
+                    android:background="#F2F2F2"
                     android:gravity="center"
                     android:padding="10dp"
+                    android:textColor="#0097A7"
                     android:textSize="15dp"
-                    android:textColor="#298A08"
-                    android:textStyle="bold"
-                    android:background="#F2F2F2"/>
+                    android:textStyle="bold" />
                 <TextView
                     android:id="@+id/mes3"
                     android:layout_width="fill_parent"
@@ -173,7 +173,7 @@
                     android:background="#FFF8EA"
                     android:gravity="center"
                     android:padding="10dp"
-                    android:textColor="#298A08"
+                    android:textColor="#0097A7"
                     android:textStyle="bold"
                     android:textSize="15dp" />
                 <TextView
@@ -211,7 +211,7 @@
                     android:gravity="center"
                     android:padding="10dp"
                     android:textSize="15dp"
-                    android:textColor="#298A08"
+                    android:textColor="#0097A7"
                     android:textStyle="bold"
                     android:background="#F2F2F2"/>
                 <TextView
