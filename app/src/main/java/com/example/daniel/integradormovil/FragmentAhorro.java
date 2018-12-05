@@ -26,6 +26,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.iid.FirebaseInstanceId;
 
+import java.util.Date;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -65,7 +67,7 @@ public class FragmentAhorro extends Fragment {
         mReiniciarBtn = (Button)v.findViewById(R.id.btnreiniciar);
 
         //Reinicio de contador
-        
+
         mReiniciarBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -73,12 +75,16 @@ public class FragmentAhorro extends Fragment {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference refUsuario = database.getReference();
 
-                String Reinicio = "0";
-                refUsuario.child("usuario").child("12345678").child("ahorro").setValue(Reinicio);
+
+                int Reinicio = 0;
+
+                refUsuario.child("usuario").child("12345678").child("ahorro").setValue( Reinicio );
 
 
             }
         });
+
+
 
 
         valor=(TextView)v.findViewById(R.id.textView2);

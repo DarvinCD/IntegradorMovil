@@ -13,6 +13,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.daniel.integradormovil.model.Meta;
 import com.google.firebase.database.DataSnapshot;
@@ -95,67 +96,64 @@ public class FragmentMetas extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
-
         View v = inflater.inflate(R.layout.fragment_fragment_metas, container, false);
 
-        fab = (FloatingActionButton)v.findViewById(R.id.fab_meta);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+
+        if(mRecyclerView != null)
+        {
+            Intent intent = new Intent(getActivity(), MetasActivity.class);
+            getActivity().startActivity(intent);
+        }
+
+        else {
+
+            mRecyclerView = (RecyclerView) v.findViewById(R.id.recycler);
+            mRecyclerView.setLayoutManager( new LinearLayoutManager(getContext()));
+
+            metas = new ArrayList<Meta>();
+
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+            mRecyclerView.setHasFixedSize(true);
+            adapter = new RecyclerAdapter(metas);
+            mRecyclerView.setAdapter(adapter);
 
 
-                Intent intent = new Intent(getActivity(), MetasActivity.class);
-                getActivity().startActivity(intent);
-            }
-        });
-
-
-        //Parte Del Listado
-
-
-
-        mRecyclerView = (RecyclerView) v.findViewById(R.id.recycler);
-        mRecyclerView.setLayoutManager( new LinearLayoutManager(getContext()));
-
-        metas = new ArrayList<Meta>();
-
-       FirebaseDatabase database = FirebaseDatabase.getInstance();
-
-
-        mRecyclerView.setHasFixedSize(true);
-
-        //adapter = new RecyclerAdapter(metas);
-      //  mRecyclerView.setAdapter(adapter);
-        //FirebaseDatabase database = FirebaseDatabase.getInstance();
-       // adapter = new RecyclerAdapter(getContext(),metas);
-
-        adapter = new RecyclerAdapter(metas);
-        mRecyclerView.setAdapter(adapter);
-
-
-        database.getReference().getRoot().child("usuario").child("12345678").child("meta").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                metas.removeAll(metas);
-                Meta meta = dataSnapshot.getValue(Meta.class);
-                metas.add(meta);
+            database.getReference().getRoot().child("usuario").child("12345678").child("meta").addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    metas.removeAll(metas);
+                    Meta meta = dataSnapshot.getValue(Meta.class);
+                    metas.add(meta);
                /* for (DataSnapshot snapshot :
                         dataSnapshot.getChildren()) {
                     Meta meta = snapshot.getValue(Meta.class);
                     metas.add(meta);
                 }*/
 
-                adapter.notifyDataSetChanged();
-            }
+                    adapter.notifyDataSetChanged();
+                }
 
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    //Toast.makeText(getContext(), "Opsss.... Something is wrong", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+        }
+
+
+        fab = (FloatingActionButton)v.findViewById(R.id.fab_meta);
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                //Toast.makeText(getContext(), "Opsss.... Something is wrong", Toast.LENGTH_SHORT).show();
+            public void onClick(View view) {
+                Snackbar.make(view, "Creando...", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+                Intent intent = new Intent(getActivity(), MetasActivity.class);
+                getActivity().startActivity(intent);
             }
         });
+
         return v;
     }
 
