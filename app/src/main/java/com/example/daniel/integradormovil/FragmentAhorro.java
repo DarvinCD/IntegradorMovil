@@ -11,6 +11,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +24,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 
 /**
@@ -38,8 +40,7 @@ public class FragmentAhorro extends Fragment {
     public FragmentAhorro() {
         // Required empty public constructor
     }
-
-    public Button boton;
+    private Button mReiniciarBtn;
     NotificationCompat.Builder notificacion;
     private  static  final int idunic = 001;
 
@@ -61,6 +62,20 @@ public class FragmentAhorro extends Fragment {
 
         View v = inflater.inflate(R.layout.fragment_fragment_ahorro, container, false);
         mAhorroView = (TextView)v.findViewById(R.id.txtahorro);
+        mReiniciarBtn = (Button)v.findViewById(R.id.btnreiniciar);
+        mReiniciarBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference refUsuario = database.getReference();
+
+                String Reinicio = "0";
+                refUsuario.child("usuario").child("12345678").child("ahorro").setValue(Reinicio);
+
+
+            }
+        });
         valor=(TextView)v.findViewById(R.id.textView2);
        // boton = (Button)v.findViewById(R.id.button_noti);
         return v;
