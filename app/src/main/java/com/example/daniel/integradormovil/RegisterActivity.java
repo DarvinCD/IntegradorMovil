@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -24,6 +25,7 @@ import com.google.firebase.iid.FirebaseInstanceId;
 public class RegisterActivity extends AppCompatActivity {
 
     private FloatingActionButton fRegistrarBtn;
+    private Button cancelar;
     private TextView mVolvertxt;
   //  private Button mRegistrarBtn;
     private EditText mNombreFieldRegist, mEmailFieldRegist,mPasswordFieldRegist,mSerialFieldRegist;
@@ -35,14 +37,14 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
-        getSupportActionBar().hide();
+       // showToolbar(getResources().getString(R.string.toolbar_Registro), true);
 
         mNombreFieldRegist = (EditText) findViewById(R.id.txtUsuario);
         mEmailFieldRegist = (EditText) findViewById(R.id.txtEmail);
         mPasswordFieldRegist = (EditText) findViewById(R.id.txtPassword);
         mSerialFieldRegist = (EditText) findViewById(R.id.txtSerial);
         fRegistrarBtn = (FloatingActionButton) findViewById(R.id.fab_register);
+        //cancelar = (Button) findViewById(R.id.boton_cancelar);
        // mRegistrarBtn = (Button) findViewById(R.id.botonRegistrar);
 
         mAuth = FirebaseAuth.getInstance();
@@ -82,9 +84,23 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
+                finish();
+            }
+        });
+
+        cancelar=(Button) findViewById(R.id.boton_cancelar);
+
+        cancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
+                finish();
             }
         });
     }
+
+
+
 
     public void onStart() {
         super.onStart();
@@ -134,5 +150,15 @@ public class RegisterActivity extends AppCompatActivity {
                         }
                     });
         }
+    }
+
+    public void showToolbar(String title, boolean upButton) {
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(title);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(upButton);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
     }
 }
