@@ -63,6 +63,9 @@ public class FragmentAhorro extends Fragment {
         View v = inflater.inflate(R.layout.fragment_fragment_ahorro, container, false);
         mAhorroView = (TextView)v.findViewById(R.id.txtahorro);
         mReiniciarBtn = (Button)v.findViewById(R.id.btnreiniciar);
+
+        //Reinicio de contador
+        
         mReiniciarBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -76,6 +79,8 @@ public class FragmentAhorro extends Fragment {
 
             }
         });
+
+
         valor=(TextView)v.findViewById(R.id.textView2);
        // boton = (Button)v.findViewById(R.id.button_noti);
         return v;
