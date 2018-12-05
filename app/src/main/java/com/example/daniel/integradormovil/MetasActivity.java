@@ -104,11 +104,14 @@ public class MetasActivity extends AppCompatActivity {
 
                     refUsuario.setValue(meta);
                     Toast.makeText(getApplicationContext(),
-                            "Meta Registrada",
+                            "Meta Guardada",
                             Toast.LENGTH_SHORT).show();
 
-
                     LimpiarCampos();
+
+                    startActivity(new Intent(MetasActivity.this,NavegationActivity.class));
+                    finish();
+
 
                 }
 
@@ -136,4 +139,5 @@ public class MetasActivity extends AppCompatActivity {
         mMonto.setText("");
         mFecha.setText("");
     }
+
 }
