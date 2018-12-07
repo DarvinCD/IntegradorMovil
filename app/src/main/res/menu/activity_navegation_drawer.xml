@@ -46,17 +46,7 @@
         </menu>
     </item>
 
-    <item android:title="Opciones">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Compartir" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_shopping_cart_black_24dp"
-                android:title="Comprar cetes" />
-        </menu>
+    <item android:title="">
     </item>
 
 </menu>

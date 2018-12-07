@@ -64,22 +64,12 @@ FragmentAhorro.OnFragmentInteractionListener,FragmentPerfil.OnFragmentInteractio
 
     @Override
     public void onBackPressed() {
-       // DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        //if (drawer.isDrawerOpen(GravityCompat.START)) {
-          //  drawer.closeDrawer(GravityCompat.START);
-        //} else {
-          //  super.onBackPressed();
-        //}
-    //}
-         Fragment currentFragment = getSupportFragmentManager()
-                .findFragmentById(R.id.content_main);
-            if (getFragmentManager().getBackStackEntryCount()>0) {
-                getFragmentManager().popBackStackImmediate();
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
         }
-         else
-            {
-                finish();
-            }
     }
 
     @Override
@@ -189,17 +179,17 @@ FragmentAhorro.OnFragmentInteractionListener,FragmentPerfil.OnFragmentInteractio
             //duracion= Toast.LENGTH_SHORT;
         //}
 
-        else if (id == R.id.nav_share) {
+       // else if (id == R.id.nav_share) {
 
             //txt= "Seleccionaste Compartir";
             //duracion= Toast.LENGTH_SHORT;
-        }
+        //}
 
-        else if (id == R.id.nav_send) {
+        //else if (id == R.id.nav_send) {
 
             //txt= "Seleccionaste Comprar cetes";
             //duracion= Toast.LENGTH_SHORT;
-        }
+        //}
 
         if (FragmentTransaction){
             getSupportFragmentManager().beginTransaction()
