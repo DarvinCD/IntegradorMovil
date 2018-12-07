@@ -1,101 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.CardView
+    <RelativeLayout
+        android:id="@+id/rlContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginRight="10dp">
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="@dimen/space_component3x"
+        android:layout_marginRight="@dimen/space_component3x"
+        android:layout_marginTop="5dp">
 
-        <LinearLayout
+
+        <android.support.v7.widget.CardView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/cvContainer"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-
-            <LinearLayout
-                android:layout_width="130dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView13"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="Nombre:"
-                    android:textAlignment="center"
-                    android:textColor="@color/cardview_dark_background"
-                    android:textSize="30sp" />
-
-                <TextView
-                    android:id="@+id/textView12"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="Monto:"
-                    android:textAlignment="center"
-                    android:textColor="@color/cardview_dark_background"
-                    android:textSize="30sp" />
-
-                <TextView
-                    android:id="@+id/textView11"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="Fecha:"
-                    android:textAlignment="center"
-                    android:textColor="@color/cardview_dark_background"
-                    android:textSize="30sp" />
-            </LinearLayout>
-
-            <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/card_detail_mount_margin"
+            android:foreground="?android:attr/selectableItemBackground"
+            card_view:cardCornerRadius="8dp"
+            card_view:cardBackgroundColor="#CFD8DC"
+            card_view:cardElevation="4dp"
+            card_view:cardMaxElevation="6dp">
+            
+            <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:paddingTop="20dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:stretchColumns="*">
 
-                <TextView
-                    android:id="@+id/txtNombreMeta"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:textAlignment="center"
-                    android:textColor="@color/cardview_dark_background"
-                    android:textSize="30sp" />
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/txtMontoMenta"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
+                    <TextView
+                        android:id="@+id/textView13"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Meta:"
+                        android:layout_span="2"
+                        android:textColor="#000000"
+                        android:textSize="20dp" />
 
-                    android:textAlignment="center"
-                    android:textColor="@color/cardview_dark_background"
-                    android:textSize="30sp" />
+                    <TextView
+                        android:id="@+id/txtNombreMeta"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="#000000"
+                        android:layout_span="5"
+                        android:textSize="20dp" />
 
-                <TextView
-                    android:id="@+id/txtfechalimite"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
+                </TableRow>
 
-                    android:textAlignment="center"
-                    android:textColor="@color/cardview_dark_background"
-                    android:textSize="30sp" />
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
 
-            </LinearLayout>
-        </LinearLayout>
-    </android.support.v7.widget.CardView>
+                    <TextView
+                        android:id="@+id/textView11"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginBottom="10dp"
+                        android:text="Fecha:"
+                        android:layout_span="2"
+                        android:textColor="#000000"
+                        android:textSize="20dp" />
 
-</LinearLayout>
+                    <TextView
+                        android:id="@+id/txtfechalimite"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="#000000"
+                        android:layout_span="5"
+                        android:textSize="20dp" />
+
+
+                </TableRow>
+
+            </TableLayout>
+
+        </android.support.v7.widget.CardView>
+
+
+
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/space_component5x">
+
+        <TextView
+            android:id="@+id/txtMontoMenta"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/layout_bg_corner_mount_1"
+            android:fontFamily="sans-serif-thin"
+            android:textStyle="bold"
+            android:padding="@dimen/space_component2x"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/card_detail_mount_text_size"
+            />
+    </RelativeLayout>
+
+</RelativeLayout>

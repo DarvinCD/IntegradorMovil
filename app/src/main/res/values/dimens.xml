@@ -7,4 +7,15 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="padding_horizontal_login">32dp</dimen>
     <dimen name="edittext_textsize_login">18sp</dimen>
+
+
+    <!-- Dimensiones CARDVIEW-->
+
+    <dimen name="space_component">5dp</dimen>
+    <dimen name="space_component2x">10dp</dimen>
+    <dimen name="space_component3x">25dp</dimen>
+    <dimen name="space_component5x">25dp</dimen>
+    <dimen name="space_big">20dp</dimen>
+    <dimen name="card_detail_mount_margin">45dp</dimen>
+    <dimen name="card_detail_mount_text_size">25dp</dimen>
 </resources>

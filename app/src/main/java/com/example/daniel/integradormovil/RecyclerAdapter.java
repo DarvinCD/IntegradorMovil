@@ -2,6 +2,7 @@ package com.example.daniel.integradormovil;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,12 +44,15 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MetasV
 
         Meta meta = metas.get(position);
 
+        //int precio=Integer.valueOf(holder.montometa .getText().toString());
 
-        holder.nombremeta.setText(meta.getNombre_meta());
-        holder.montometa.setText(meta.getMonto_meta());
-        holder.fechameta.setText((meta.getFecha_meta()));
 
-    }
+
+            holder.nombremeta.setText(meta.getNombre_meta());
+            holder.montometa.setText("$" + meta.getMonto_meta());
+            holder.fechameta.setText((meta.getFecha_meta()));
+        }
+
 
     @Override
     public int getItemCount() {
@@ -58,13 +62,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MetasV
       class MetasViewHolder extends RecyclerView.ViewHolder{
 
         TextView nombremeta,montometa,fechameta;
+        CardView cardView;
 
      public MetasViewHolder(View itemView) {
          super(itemView);
          fechameta =(TextView)itemView.findViewById(R.id.txtfechalimite);
          montometa =(TextView)itemView.findViewById(R.id.txtMontoMenta);
          nombremeta =(TextView)itemView.findViewById(R.id.txtNombreMeta);
-
+        cardView=(CardView)itemView.findViewById(R.id.cvContainer);
 
      }
  }
