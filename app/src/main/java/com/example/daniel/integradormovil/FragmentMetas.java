@@ -13,17 +13,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.example.daniel.integradormovil.model.Meta;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 /**
@@ -47,6 +45,8 @@ public class FragmentMetas extends Fragment {
     RecyclerView mRecyclerView;
     ArrayList<Meta> metas;
     RecyclerAdapter adapter;
+
+    private TextView texto;
 
 
 
@@ -97,6 +97,9 @@ public class FragmentMetas extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_fragment_metas, container, false);
+        texto=(TextView)v.findViewById(R.id.txtAhorroMeta);
+
+
 
 
         if(mRecyclerView != null)
@@ -112,14 +115,18 @@ public class FragmentMetas extends Fragment {
 
             metas = new ArrayList<Meta>();
 
+
             FirebaseDatabase database = FirebaseDatabase.getInstance();
 
             mRecyclerView.setHasFixedSize(true);
             adapter = new RecyclerAdapter(metas);
+            //adapterah=new RecyclerAdapter(ahorros);
             mRecyclerView.setAdapter(adapter);
 
 
             database.getReference().getRoot().child("usuario").child("12345678").child("meta").addValueEventListener(new ValueEventListener() {
+
+
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     metas.removeAll(metas);
@@ -142,7 +149,6 @@ public class FragmentMetas extends Fragment {
 
         }
 
-
         fab = (FloatingActionButton)v.findViewById(R.id.fab_meta);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -153,6 +159,10 @@ public class FragmentMetas extends Fragment {
                 getActivity().startActivity(intent);
             }
         });
+
+
+
+
 
         return v;
     }

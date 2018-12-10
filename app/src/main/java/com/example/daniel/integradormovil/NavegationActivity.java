@@ -60,8 +60,8 @@ FragmentAhorro.OnFragmentInteractionListener,FragmentPerfil.OnFragmentInteractio
 
 
         FragmentManager fragmentManager= getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.content_main,new FragmentPerfil()).commit();
-        setTitle("Perfil");
+        fragmentManager.beginTransaction().replace(R.id.content_main,new FragmentAhorro()).commit();
+        setTitle("Mi Ahorro");
     }
 
     @Override
@@ -125,15 +125,15 @@ FragmentAhorro.OnFragmentInteractionListener,FragmentPerfil.OnFragmentInteractio
     //        FragmentTransaction = true;
   //      }
 
-         if (id == R.id.nav_camera) {
+        /* if (id == R.id.nav_camera) {
             // Handle the camera action
           //  txt= "Seleccionaste perfil";
             //duracion= Toast.LENGTH_SHORT;
             fragment = new FragmentPerfil();
             FragmentTransaction = true;
-        }
+        } */
 
-        else if (id == R.id.nav_gallery) {
+       if (id == R.id.nav_gallery) {
 
             //txt= "Seleccionaste Ahorro";
             //duracion= Toast.LENGTH_SHORT;
