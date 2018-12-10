@@ -40,26 +40,29 @@
         <EditText
             android:id="@+id/txtUsuario"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_margin="18dp"
             android:background="@drawable/bordertext"
             android:drawableRight="@drawable/ic_action_user"
+            android:gravity="start"
             android:hint=" Nombre"
             android:inputType="textEmailAddress"
-            android:gravity="start"
+            android:paddingLeft="5dp"
+            android:paddingTop="3dp"
             android:textColor="#000000"
             android:textColorHint="#000000" />
 
         <EditText
             android:id="@+id/txtSerial"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_margin="18dp"
             android:drawableRight="@drawable/ic_action_user"
             android:hint=" S/N"
+            android:paddingLeft="5dp"
+            android:paddingTop="3dp"
             android:background="@drawable/bordertext"
             android:inputType="number"
-            android:textAlignment="textStart"
             android:textColor="#000000"
             android:textColorHint="#000000" />
 
@@ -67,23 +70,27 @@
         <EditText
             android:id="@+id/txtEmail"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_margin="18dp"
             android:drawableRight="@drawable/ic_action_email"
             android:hint="Correo"
             android:background="@drawable/bordertext"
             android:inputType="textEmailAddress"
             android:textColor="#000000"
+            android:paddingLeft="5dp"
+            android:paddingTop="3dp"
             android:textColorHint="#000000" />
 
         <EditText
             android:id="@+id/txtPassword"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_margin="18dp"
             android:drawableRight="@drawable/ic_action_pass"
             android:background="@drawable/bordertext"
             android:hint="Contraseña"
+            android:paddingLeft="5dp"
+            android:paddingTop="3dp"
             android:inputType="textPassword"
             android:textColor="#000000"
             android:textColorHint="#000000"/>
@@ -98,30 +105,8 @@
         android:paddingLeft="15dp"
         android:paddingRight="15dp">
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab_register"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_gravity="bottom|start"
-            android:layout_marginEnd="20dp"
-            app:backgroundTint="@color/colorAccent"
-            app:srcCompat="@android:drawable/ic_menu_save" />
 
-
-            <TextView
-                android:id="@+id/txtregreso"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="3dp"
-                android:text="¿YA TIENES CUENTA?, CLICK AQUI"
-                android:textAlignment="textEnd"
-                android:gravity="end"
-                android:textColor="@color/colorAccent" />
-
-        </RelativeLayout>
+    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/bottom_bar"
@@ -144,7 +129,7 @@
             android:textColor="@android:color/white"/>
 
         <Button
-            android:id="@+id/fab_registr"
+            android:id="@+id/btn_registrar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

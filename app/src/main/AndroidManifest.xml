@@ -47,7 +47,15 @@
                 android:value=".NavegationActivity"/>
 
         </activity>
-        <activity android:name=".WebConexionActivity" />
+
+        <activity android:name=".WebConexionActivity"
+            android:label="Conectate"
+            android:parentActivityName=".NavegationActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".NavegationActivity" />
+        </activity>
 
 
         <service

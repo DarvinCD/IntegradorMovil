@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -22,7 +23,7 @@ public class WebConexionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_web_conexion);
 
 
-        getSupportActionBar().hide();
+
 
         WebView web = (WebView) findViewById(R.id.miVisor);
         web.setWebViewClient(new MyWebViewClient());
@@ -47,11 +48,22 @@ public class WebConexionActivity extends AppCompatActivity {
 
 
 
+
     private class MyWebViewClient  extends WebViewClient
     {
         public boolean shouldOverrideUrlLoading(WebView view, String url){
             view.loadUrl(url);
             return true;
         }
+    }
+
+    public void showToolbar(String title, boolean upButton) {
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(title);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(upButton);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
     }
 }

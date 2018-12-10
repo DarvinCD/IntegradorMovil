@@ -24,10 +24,8 @@ import com.google.firebase.iid.FirebaseInstanceId;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private FloatingActionButton fRegistrarBtn;
-    private Button cancelar;
-    private TextView mVolvertxt;
-  //  private Button mRegistrarBtn;
+
+    private Button cancelar,registrar;
     private EditText mNombreFieldRegist, mEmailFieldRegist,mPasswordFieldRegist,mSerialFieldRegist;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
@@ -43,9 +41,7 @@ public class RegisterActivity extends AppCompatActivity {
         mEmailFieldRegist = (EditText) findViewById(R.id.txtEmail);
         mPasswordFieldRegist = (EditText) findViewById(R.id.txtPassword);
         mSerialFieldRegist = (EditText) findViewById(R.id.txtSerial);
-        fRegistrarBtn = (FloatingActionButton) findViewById(R.id.fab_register);
-        //cancelar = (Button) findViewById(R.id.boton_cancelar);
-       // mRegistrarBtn = (Button) findViewById(R.id.botonRegistrar);
+
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -64,29 +60,17 @@ public class RegisterActivity extends AppCompatActivity {
             }
         };
 
-        fRegistrarBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                RegistrarUsuario();
-            }
-        });
 
-      /*  mRegistrarBtn.setOnClickListener(new View.OnClickListener(){
+
+        registrar = (Button) findViewById(R.id.btn_registrar);
+
+        registrar.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 RegistrarUsuario();
             }
-        });*/
-
-        mVolvertxt=(TextView) findViewById(R.id.txtregreso);
-
-        mVolvertxt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
-                finish();
-            }
         });
+
 
         cancelar=(Button) findViewById(R.id.boton_cancelar);
 
@@ -149,6 +133,10 @@ public class RegisterActivity extends AppCompatActivity {
                             // ...
                         }
                     });
+        }
+        else
+        {
+            Toast.makeText(RegisterActivity.this, "CAMPOS VACIOS", Toast.LENGTH_SHORT).show();
         }
     }
 
