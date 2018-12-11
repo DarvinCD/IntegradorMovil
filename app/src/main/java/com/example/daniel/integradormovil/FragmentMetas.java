@@ -160,10 +160,6 @@ public class FragmentMetas extends Fragment {
             }
         });
 
-
-
-
-
         return v;
     }
 

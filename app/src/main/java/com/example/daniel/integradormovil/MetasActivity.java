@@ -36,7 +36,7 @@ public class MetasActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_metas);
 
-        //getSupportActionBar().hide();
+
 
         mNombre = (EditText) findViewById(R.id.edtnombre);
         mMonto = (EditText) findViewById(R.id.edtahorro);
@@ -68,6 +68,8 @@ public class MetasActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void onClick(View v) {
                 RegistrarMetas();
+                startActivity(new Intent(MetasActivity.this, NavegationActivity.class));
+                finish();
             }
         });
 
@@ -105,19 +107,16 @@ public class MetasActivity extends AppCompatActivity implements View.OnClickList
                     DatabaseReference refUsuario = database.getReference("usuario/"+texto+"/meta");
 
                     Meta meta = new Meta();
-                    meta.setNombre_meta(nombre_meta);
-                    meta.setMonto_meta(monto);
                     meta.setFecha_meta(fecha);
+                    meta.setMonto_meta(monto);
+                    meta.setNombre_meta(nombre_meta);
+
 
                     refUsuario.setValue(meta);
                     Toast.makeText(getApplicationContext(),
                             "Meta Guardada",
                             Toast.LENGTH_SHORT).show();
-
                     LimpiarCampos();
-
-                    startActivity(new Intent(MetasActivity.this, NavegationActivity.class));
-                    finish();
 
 
                 }
