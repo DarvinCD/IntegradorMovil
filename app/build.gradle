@@ -4,7 +4,7 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.example.daniel.integradormovil"
-        minSdkVersion 27
+        minSdkVersion 15
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -30,6 +30,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:16.0.0'
     implementation 'com.google.firebase:firebase-database:16.0.1'
     implementation 'com.google.firebase:firebase-auth:15.0.0'
+    implementation 'com.google.firebase:firebase-storage:16.0.1' 
     implementation 'com.weiwangcn.betterspinner:library-material:1.1.0'
     implementation 'de.hdodenhof:circleimageview:2.2.0'
     implementation 'com.weiwangcn.betterspinner:library-material:1.1.0'

@@ -144,14 +144,17 @@ public class CalculadoraFragment extends Fragment implements View.OnClickListene
 
         //AhorroFragment ahorroFragment=(AhorroFragment) getFragmentManager().findFragmentById(R.id.nav_ahorro);
         totalfinal=(TextView)view.findViewById(R.id.tot);
+        cal=(Button)view.findViewById(R.id.calcu);
         spinner=(Spinner)view.findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(getContext(), R.array.tasas,android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
+
         spinner.setOnItemSelectedListener(this);
 
         datos();
         proceso();
+        calcular();
 
 
         return view;
@@ -215,6 +218,281 @@ public class CalculadoraFragment extends Fragment implements View.OnClickListene
             }
         });
     }
+
+    public void calcular(){
+
+        cal.setOnClickListener(new View.OnClickListener(){
+            public void onClick (View v){
+
+                periodo();
+            }
+        });
+    }
+
+    public void periodo(){
+
+        String selec=spinner.getSelectedItem().toString();
+
+        try {
+
+            if (selec.equals("Seleccionar Plazo")){
+
+                textView.setText("");
+                totalinv.setText("");
+                textView.setText("");
+                inversion.setText("");
+                rema.setText("");
+                IntBruto.setText("");
+                impuesto.setText("");
+                totalfinal.setText("");
+                monto.setText("");
+                cetec.setText("");
+                cetesin.setText("");
+                gbruta.setText("");
+                rcete.setText("");
+                icete.setText("");
+                tcete.setText("");
+                cardView.setVisibility(View.INVISIBLE);
+                c1.setVisibility(View.INVISIBLE);
+                c2.setVisibility(View.INVISIBLE);
+                c3.setVisibility(View.INVISIBLE);
+                c4.setVisibility(View.INVISIBLE);
+                ti.setVisibility(View.INVISIBLE);
+                //ticete.setVisibility(View.INVISIBLE);
+                titasa.setVisibility(View.INVISIBLE);
+                ta.setVisibility(View.INVISIBLE);
+                in.setVisibility(View.INVISIBLE);
+                bonti.setVisibility(View.INVISIBLE);
+                bonddiain.setVisibility(View.INVISIBLE);
+                bonddiainversion.setVisibility(View.INVISIBLE);
+                preciobonddia.setVisibility(View.INVISIBLE);
+                GB.setVisibility(View.INVISIBLE);
+                GBonddia.setVisibility(View.INVISIBLE);
+
+                alerta = new AlertDialog.Builder(getContext());
+                //alerta.setTitle("Tenemos un Problema");
+                alerta.setMessage("Debes Seleccionar un Plazo");
+                alerta.setCancelable(false);
+                alerta.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialogo, int id) {
+                        dialogo.cancel();
+                        monto.setText("");
+                        monto.requestFocus();
+                    }
+                });
+                alerta.show();
+
+
+            } else { //else inicio
+
+                valor1 = Integer.parseInt(editText1.getText().toString());
+
+                if (valor1 >= 100 && valor1 <= 10000000) {
+
+                    valor2 = 0;
+                    total = 0;
+                    inv = 0;
+                    rem = 0;
+                    remnuevo = 0;
+
+                    traerta = 0;
+
+                    //Tasa a 28 Días
+                    tasa1 = 0;
+                    ganancia = 0;
+
+                    //Impuesto Anual
+                    ISRanual = 0.58;
+
+                    //ISR a 28 dias
+                    ISR = 0;
+                    ISRimpuesto = 0;
+                    DecimalFormat decimalFormat = new DecimalFormat("#.00");
+
+                    //BONDDIA
+                    invBondia = 0;
+                    IB = 0;
+
+                    if (selec.equals("1 Mes")){
+
+                        ti.setVisibility(View.VISIBLE);
+                        ti.setText("CETES 28");
+                        ta.setVisibility(View.VISIBLE);
+                        ta.setText(interes + "%");
+                        tasa1 = ((interesp / 360) * 28);
+                        ISR = ((ISRanual / 365) * 28);
+                        valor2 = preci;
+                        interesRBonddia = ((interesBonddia / 360) * 28);
+                        total = valor1 / valor2;
+
+                    } else
+
+                    if(selec.equals("3 Meses")){
+
+                        ti.setVisibility(View.VISIBLE);
+                        ti.setText("CETES 91");
+                        ta.setVisibility(View.VISIBLE);
+                        ta.setText(interes2 + "%");
+                        tasa1 = ((interesp2 / 360) * 91);
+                        ISR = ((ISRanual / 365) * 91);
+                        valor2 = precio2;
+                        interesRBonddia = ((interesBonddia / 360) * 91);
+                        total = valor1 / valor2;
+
+                    } else
+                    if (selec.equals("6 Meses")){
+
+                        ti.setVisibility(View.VISIBLE);
+                        ti.setText("CETES 182");
+                        ta.setVisibility(View.VISIBLE);
+                        ta.setText(interes3 + "%");
+                        tasa1 = ((interesp3 / 360) * 182);
+                        ISR = ((ISRanual / 365) * 182);
+                        valor2 = precio3;
+                        interesRBonddia = ((interesBonddia / 360) * 182);
+                        total = valor1 / valor2;
+
+                    } else
+                    if (selec.equals("1 Año")){
+
+                        ti.setVisibility(View.VISIBLE);
+                        ti.setText("CETES 365");
+                        ta.setVisibility(View.VISIBLE);
+                        ta.setText(interes4 + "%");
+                        tasa1 = ((interesp4 / 360) * 365);
+                        ISR = ((ISRanual / 365) * 365);
+                        valor2 = precio4;
+                        interesRBonddia = ((interesBonddia / 360) * 365);
+                        total = valor1 / valor2;
+
+                    }
+
+                    String str = String.valueOf(total);
+                    int intNumber = Integer.parseInt(str.substring(0, str.indexOf('.')));
+                    float decNumbert = Float.parseFloat(str.substring(str.indexOf('.')));
+
+                    inv = intNumber * valor2;
+                    rem = valor1 - inv;
+
+                    if (rem >= pBonddia) {
+
+                        rem = rem / pBonddia;
+                        //bonti.setVisibility(View.VISIBLE);
+                        //bonti.setText(bonddia+"%")
+                    }
+
+
+
+                    String str2 = String.valueOf(rem);
+                    intRem = Integer.parseInt(str2.substring(0, str2.indexOf('.')));
+                    invBondia = intRem * pBonddia;
+                    remnuevo = (valor1 - (inv + invBondia));
+
+                    ganancia = inv * tasa1;
+                    IB = invBondia * interesRBonddia;
+
+                    ISRimpuesto = inv * (ISR / 100);
+                    double gananciareal = (ganancia - ISRimpuesto);
+                    double totalfin = inv + remnuevo + gananciareal + invBondia + IB;
+
+                    //BODIIa
+                    bonddiain.setVisibility(View.VISIBLE);
+                    bonddiainversion.setVisibility(View.VISIBLE);
+                    bonddiainversion.setText("$" + decimalFormat.format(invBondia));
+
+                    GB.setVisibility(View.VISIBLE);
+                    GBonddia.setVisibility(View.VISIBLE);
+                    GBonddia.setText("$" + decimalFormat.format(IB));
+
+
+                    valorbon.setText("" + intRem);
+                    bonti.setVisibility(View.VISIBLE);
+                    bonti.setText(bonddia + "%");
+                    cardView.setVisibility(View.VISIBLE);
+                    // ticete.setVisibility(View.VISIBLE);
+                    titasa.setVisibility(View.VISIBLE);
+                    //MONTO INVERTIDO EJEMPLO:100
+                    monto.setText("Monto Invertido:");
+                    totalinv.setText("$" + valor1);
+
+                    // CANTIDAD DE CETES COMPRADOS
+                    cetec.setText("Cetes:");
+                    textView.setText("" + intNumber);
+
+                    // Inversion en CETES
+                    cetesin.setText("Inversión en Cetes:");
+                    inversion.setText("$" + decimalFormat.format(inv));
+
+                    // REMANENTE
+                    rcete.setText("Remanente");
+                    rema.setText("$" + decimalFormat.format(remnuevo));
+
+                    //INTERES BRUTO
+                    gbruta.setText("Interés Bruto:");
+                    IntBruto.setText("$" + decimalFormat.format(ganancia));
+
+                    //ISR
+                    icete.setText("ISR:");
+                    impuesto.setText("$" + decimalFormat.format(ISRimpuesto));
+
+                    //GANANCIA TOTAL
+                    tcete.setText("Obtienes al final:");
+                    totalfinal.setText("$" + decimalFormat.format(totalfin));
+
+
+
+                } //if final
+
+                else {
+                    alerta = new AlertDialog.Builder(getContext());
+                    //alerta.setTitle("Tenemos un Problema");
+                    alerta.setMessage("El Monto debe ser entre 100 y 10,000,000.");
+                    alerta.setCancelable(false);
+                    alerta.setPositiveButton("Cerrar", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialogo, int id) {
+                            dialogo.cancel();
+                            editText1.setText("");
+                            editText1.requestFocus();
+                        }
+                    });
+                    alerta.show();
+
+                }
+
+
+            } //else final
+
+
+        }
+
+        catch (NumberFormatException e) {
+            alerta = new AlertDialog.Builder(getContext());
+            //alerta.setTitle("Faltan Datos");
+            alerta.setMessage("Ingresa el Monto a calcular.");
+            alerta.setCancelable(false);
+            alerta.setPositiveButton("Cerrar", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialogo, int id) {
+                    dialogo.cancel();
+                    editText1.requestFocus();
+                }
+            });
+            alerta.show();
+        } catch (ArithmeticException e) {
+            alerta = new AlertDialog.Builder(getContext());
+            //alerta.setTitle("Lo Sentimos");
+            alerta.setMessage("Ha ocurrido un error en la operación.");
+            alerta.setCancelable(false);
+            alerta.setPositiveButton("Cerrar", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialogo, int id) {
+                    dialogo.cancel();
+                    editText1.requestFocus();
+                }
+            });
+            alerta.show();
+        }
+
+    }
+
 
     public void proceso()
     {

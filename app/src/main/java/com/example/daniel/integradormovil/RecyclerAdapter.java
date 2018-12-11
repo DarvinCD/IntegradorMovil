@@ -1,6 +1,8 @@
 package com.example.daniel.integradormovil;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
+import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,13 +13,14 @@ import android.widget.TextView;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.example.daniel.integradormovil.model.Meta;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MetasViewHolder> {
 
-    String texto;
+    //String texto;
 
 
     List<Meta> metas;
@@ -32,9 +35,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MetasV
         context = c;
         metas = metas;
     }*/
-
-
-
 
     @NonNull
     @Override
@@ -77,15 +77,15 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MetasV
 
     class MetasViewHolder extends RecyclerView.ViewHolder{
 
-        TextView nombremeta,montometa,fechameta, ahorradometa;
-        CardView cardView;
+        TextView nombremeta,montometa,fechameta;
+       // CardView cardView;
          public MetasViewHolder(View itemView) {
          super(itemView);
          fechameta =(TextView)itemView.findViewById(R.id.txtfechalimite);
          montometa =(TextView)itemView.findViewById(R.id.txtMontoMenta);
          nombremeta =(TextView)itemView.findViewById(R.id.txtNombreMeta);
       //  cardView=(CardView)itemView.findViewById(R.id.cvContainer);
-         ahorradometa=(TextView)itemView.findViewById(R.id.txtAhorroMeta);
+       //  ahorradometa=(TextView)itemView.findViewById(R.id.txtAhorroMeta);
      }
 
     }

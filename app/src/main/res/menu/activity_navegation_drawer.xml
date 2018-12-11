@@ -38,10 +38,6 @@
                     android:id="@+id/nav_inversiones"
                     android:icon="@drawable/ic_menu_inversiones"
                     android:title="Inversiones" />
-                <item
-                    android:id="@+id/nav_retiros"
-                    android:icon="@drawable/ic_menu_retiros"
-                    android:title="Retiros"/>
             </group>
         </menu>
     </item>

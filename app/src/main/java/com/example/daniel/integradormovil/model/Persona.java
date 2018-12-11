@@ -9,8 +9,8 @@ public class Persona {
     private String registrationToken;
     private String ahorro;
 
-    public String getAhorro() {
-        return ahorro;
+   public String getAhorro() {
+       return ahorro;
     }
 
     public void setAhorro(String ahorro) {

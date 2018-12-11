@@ -10,6 +10,8 @@
 
     <string name="toolbar_Registro">Crear Cuenta</string>
 
+    <string name="nodo_inversiones">Inversiones</string>
+
     <string name="error_invalid_email">This email address is invalid</string>
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
