@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.daniel.integradormovil.model.Meta;
+import com.example.daniel.integradormovil.model.Persona;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,6 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.util.Calendar;
 
@@ -44,23 +46,6 @@ public class MetasActivity extends AppCompatActivity implements View.OnClickList
         bGuardar = (Button) findViewById(R.id.boton_metas);
         bCancelar = (Button) findViewById(R.id.btncancelarmeta);
 
-        mFecha.setOnClickListener(this);
-
-        mAuth = FirebaseAuth.getInstance();
-
-        mAuthStateListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-
-               /* if() {
-                    Toast.makeText(MetasActivity.this, "META GUARDADA", Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    // Toast.makeText(MainActivity.this, "DATOS INCORRECTOS", Toast.LENGTH_SHORT).show();
-                }*/
-
-            }
-        };
 
 
 
@@ -68,8 +53,6 @@ public class MetasActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void onClick(View v) {
                 RegistrarMetas();
-                startActivity(new Intent(MetasActivity.this, NavegationActivity.class));
-                finish();
             }
         });
 
@@ -86,6 +69,8 @@ public class MetasActivity extends AppCompatActivity implements View.OnClickList
 
     private void RegistrarMetas(){
 
+        mAuth = FirebaseAuth.getInstance();
+
         final String nombre_meta = mNombre.getText().toString();
         final String monto = mMonto.getText().toString();
         final String fecha = mFecha.getText().toString();
@@ -96,6 +81,24 @@ public class MetasActivity extends AppCompatActivity implements View.OnClickList
 
 
             FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference refUsuario = database.getReference("usuario/12345678/meta");
+
+            Meta meta = new Meta();
+            meta.setFecha_meta(fecha);
+            meta.setMonto_meta(monto);
+            meta.setNombre_meta(nombre_meta);
+
+
+            refUsuario.setValue(meta);
+            Toast.makeText(getApplicationContext(),
+                    "Meta Guardada",
+                    Toast.LENGTH_SHORT).show();
+            LimpiarCampos();
+            startActivity(new Intent(MetasActivity.this, NavegationActivity.class));
+            finish();
+
+
+           /* FirebaseDatabase database = FirebaseDatabase.getInstance();
             DatabaseReference refUsuario2 = database.getReference("/usuario");
             Query query = refUsuario2.orderByChild("idFirebase").equalTo(mAuth.getUid());
             query.addValueEventListener(new ValueEventListener() {
@@ -117,6 +120,7 @@ public class MetasActivity extends AppCompatActivity implements View.OnClickList
                             "Meta Guardada",
                             Toast.LENGTH_SHORT).show();
                     LimpiarCampos();
+                    finish();
 
 
                 }
@@ -125,11 +129,7 @@ public class MetasActivity extends AppCompatActivity implements View.OnClickList
                 public void onCancelled(@NonNull DatabaseError databaseError) {
 
                 }
-            });
-
-
-
-
+            });*/
         }
         else
         {
@@ -137,7 +137,6 @@ public class MetasActivity extends AppCompatActivity implements View.OnClickList
         }
 
     }
-
 
     private void LimpiarCampos(){
 

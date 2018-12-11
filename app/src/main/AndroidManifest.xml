@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.daniel.integradormovil">
 
+
+
     <application
     tools:replace="android:label"
     android:allowBackup="true"
